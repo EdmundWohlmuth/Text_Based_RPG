@@ -10,7 +10,7 @@ namespace Test_Based_RPG
     {
         //refs
         private Map map;
-
+        private bool paused = false;
 
         //vars
         private ConsoleKey input;
@@ -18,6 +18,7 @@ namespace Test_Based_RPG
         private readonly ConsoleKey DOWN = ConsoleKey.S;
         private readonly ConsoleKey LEFT = ConsoleKey.A;
         private readonly ConsoleKey RIGHT = ConsoleKey.D;
+        private readonly ConsoleKey PAUSE = ConsoleKey.P;
         public int direction;
         public Player(Map map)
         {
@@ -62,6 +63,14 @@ namespace Test_Based_RPG
                 deltaX = +1;
                 direction = 4;
             }
+            else if (input == PAUSE || input == ConsoleKey.NumPad0)
+            {
+                if (!paused)
+                {
+                    paused = true;
+                }
+                else paused = false;
+            }
 
             GetFuturePosition();
 
@@ -70,6 +79,14 @@ namespace Test_Based_RPG
                 Console.Beep(250, 33);
                 canMoveThere = false;
                 direction = 0;
+            }
+            else if (renderer.IsShopArea(futureX, futureY, map) == true)
+            {
+                //stop character
+                canMoveThere = false;
+                direction = 0;
+                // goto shop menu
+
             }
 
             for (int i = 0; i < enemyManager.enemies.Length; i ++)

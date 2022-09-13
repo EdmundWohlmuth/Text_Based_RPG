@@ -25,9 +25,7 @@ namespace Test_Based_RPG
         {
 
         }
-
     }
-
 
     class Money : Item
     {

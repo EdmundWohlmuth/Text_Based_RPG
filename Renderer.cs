@@ -41,6 +41,15 @@ namespace Test_Based_RPG
             return false;
         }
 
+        public bool IsShopArea(int testX, int testY, Map map)
+        {
+            if (map.mapTiles[testY, testX] == '!')
+            {
+                return true;
+            }
+            return false;
+        }
+
         public void SetTileColor(char tile)
         {
             if (tile == '^')
@@ -58,6 +67,10 @@ namespace Test_Based_RPG
             else if (tile == ',')
             {
                 Console.ForegroundColor = ConsoleColor.Green;
+            }
+            else if (tile == '!')
+            {
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
             }
             else
             {

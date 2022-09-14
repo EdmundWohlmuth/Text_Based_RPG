@@ -29,10 +29,10 @@ namespace Test_Based_RPG
 
     class Money : Item
     {
-        public Money()
+        public Money(int posX, int posY)
         {
-            x = 3;
-            y = 1;
+            x = posX;
+            y = posY;
             avatar = '$';
             used = false;
             colorID = "money";

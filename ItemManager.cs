@@ -8,7 +8,7 @@ namespace Test_Based_RPG
 {
     class ItemManager
     {
-        const int maxItems = 40;
+        const int maxItems = 50;
         public Item[] items = new Item[maxItems];
         private Random rd = new Random();
         private int randomType;
@@ -30,9 +30,10 @@ namespace Test_Based_RPG
             Console.WriteLine(items[0].GetName());
             for (int i = 1; i < maxItems; i++)
             {
-                if (i < 26)
+                if (i < 36)
                 {
-                    items[i] = new Money();
+                    IsSpawnValid(20, 70, 2, 22, renderer, map);
+                    items[i] = new Money(nextX, nextY);
                     items[i].name = ("Money" + i.ToString());
                 }
                 else

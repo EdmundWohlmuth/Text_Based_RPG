@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Test_Based_RPG
+{
+    class Shop
+    {
+        private ConsoleKey input;
+        // shop prices
+        private int medkitCost = 3;
+        private int powerupCost;
+        private int keyCost = 15;
+
+        public void Start()
+        {
+
+        }
+        public void Update(Player player)
+        {
+            // update powerUp price
+            powerupCost = 2 * player.damage;
+        }
+
+        public void ShopOptions(Player player, Inventory inventory, Medkit medkit, PowerUp powerUp, Key key)
+        {
+            input = Console.ReadKey(true).Key;
+            switch (input)
+            {
+                case ConsoleKey.D1:
+                    if (inventory.money >= medkitCost)
+                    {
+                        inventory.money = inventory.money - medkitCost;
+                        medkit.OnContact(player, key, inventory);
+                    }
+                    break;
+
+                case ConsoleKey.D2:
+                    if (inventory.money >= powerupCost)
+                    {
+                        inventory.money = inventory.money - powerupCost;
+                        powerUp.OnContact(player, key, inventory);
+                    }
+                    break;
+
+                case ConsoleKey.D3:
+                    if (inventory.money >= keyCost)
+                    {
+                        inventory.money = inventory.money - keyCost;
+                        key.OnContact(player, key, inventory);
+                    }
+                    break;
+
+                case ConsoleKey.D4:
+                    break;
+
+                case ConsoleKey.E:
+                    player.paused = false;
+                    break;
+            }
+        }
+
+        public void ExitShop(Player player)
+        {
+            player.paused = false;
+        }
+    }
+}

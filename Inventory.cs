@@ -11,12 +11,14 @@ namespace Test_Based_RPG
 
         public List<Item> PlayerInventory;
         public int money;
+        public int trophy;
         public int inventoryCoordX;
         public int inventoryCoordY;
 
         public Inventory()
         {
             money = 0;
+            trophy = 0;
             PlayerInventory = new List<Item>();
         }
         public void ShowInventory(Camera camera)

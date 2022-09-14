@@ -30,7 +30,12 @@ namespace Test_Based_RPG
             Console.WriteLine(items[0].GetName());
             for (int i = 1; i < maxItems; i++)
             {
-                if (i < 36)
+                if (i == 1)
+                {
+                    items[i] = new Trophy();
+                    items[i].name = ("Trophy" + i.ToString());
+                }
+                else if (i < 36)
                 {
                     IsSpawnValid(20, 70, 2, 22, renderer, map);
                     items[i] = new Money(nextX, nextY);

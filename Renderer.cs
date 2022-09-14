@@ -70,7 +70,7 @@ namespace Test_Based_RPG
             }
             else if (tile == '!')
             {
-                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                Console.ForegroundColor = ConsoleColor.Yellow;
             }
             else
             {

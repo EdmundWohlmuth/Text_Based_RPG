@@ -49,6 +49,28 @@ namespace Test_Based_RPG
         }
     }
 
+    class Trophy : Item
+    {
+        public Trophy()
+        {
+            x = 3;
+            y = 1;
+            avatar = '#';
+            used = false;
+            obtained = false;
+            colorID = "key";
+        }
+        public override void OnContact(Player player, Key key, Inventory inventory)
+        {
+            if (IsItemHere(player) == true && obtained == false)
+            {
+                obtained = true;
+                inventory.trophy++;
+            }
+        }
+
+    }
+
 
     class Medkit : Item
     {

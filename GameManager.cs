@@ -19,6 +19,7 @@ namespace Test_Based_RPG
         public Camera camera;
         public Inventory inventory;
         public Settings settings;
+        public Shop shop;
         public void InitializeGame()
         {
             //On game launch
@@ -36,6 +37,7 @@ namespace Test_Based_RPG
             door = new Door();
             inventory = new Inventory();
             inventory.ShowInventory(camera);
+            shop = new Shop();
             Console.CursorVisible = false;
         }
 
@@ -56,6 +58,7 @@ namespace Test_Based_RPG
                 player.Draw(renderer, camera);
                 hud.Update(player);
                 inventory.Update(camera);
+                ShopCheck();
                 OnWinGame();
             }
             GameOver();
@@ -74,7 +77,7 @@ namespace Test_Based_RPG
 
         public void OnWinGame()
         {
-            if (inventory.money < 20) return;
+            if (inventory.trophy < 1) return;
             //Game Win
             Console.ReadKey(true);
             Console.Clear();
@@ -84,6 +87,15 @@ namespace Test_Based_RPG
             Console.ResetColor();
             Console.ReadKey(true);
             System.Environment.Exit(0);
+        }
+
+        public void ShopCheck()
+        {
+            // runs the shop
+            while (player.paused)
+            {
+
+            }
         }
 
         public bool InLoseState()

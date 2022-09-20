@@ -97,7 +97,15 @@ namespace Test_Based_RPG
                 Console.Beep(600, 75);
                 used = true;
             }
+        }
 
+        public void OnBuy(Player player)
+        {
+            healingAmount = rd.Next(3, 12);
+            player.health += healingAmount;
+            if (player.health > player.maxHealth) { player.health = player.maxHealth; }
+            Console.Beep(400, 50);
+            Console.Beep(600, 75);
         }
     }
 
@@ -126,6 +134,15 @@ namespace Test_Based_RPG
                 Console.Beep(400, 80);
             }
         }
+
+        public void OnBuy(Player player)
+        {
+            player.damage = player.damage * damageMultiplier;
+            used = true;
+            Console.Beep(200, 80);
+            Console.Beep(300, 80);
+            Console.Beep(400, 80);
+        }
     }
 
     class Key : Item
@@ -148,6 +165,13 @@ namespace Test_Based_RPG
                 obtained = true;
                 colorID = "";
             }
+        }
+
+        public void OnBuy(Player player, Key key, Inventory inventory)
+        {
+            inventory.PlayerInventory.Add(key);
+            obtained = true;
+            colorID = "";
         }
     }
 

@@ -33,7 +33,7 @@ namespace Test_Based_RPG
                     if (inventory.money >= medkitCost)
                     {
                         inventory.money = inventory.money - medkitCost;
-                        medkit.OnContact(player, key, inventory);
+                        medkit.OnBuy(player);
                     }
                     break;
 
@@ -41,7 +41,7 @@ namespace Test_Based_RPG
                     if (inventory.money >= powerupCost)
                     {
                         inventory.money = inventory.money - powerupCost;
-                        powerUp.OnContact(player, key, inventory);
+                        powerUp.OnBuy(player);
                     }
                     break;
 
@@ -49,7 +49,7 @@ namespace Test_Based_RPG
                     if (inventory.money >= keyCost)
                     {
                         inventory.money = inventory.money - keyCost;
-                        key.OnContact(player, key, inventory);
+                        key.OnBuy(player, key, inventory);
                     }
                     break;
 
@@ -57,7 +57,7 @@ namespace Test_Based_RPG
                     break;
 
                 case ConsoleKey.E:
-                    player.paused = false;
+                    ExitShop(player);
                     break;
             }
         }

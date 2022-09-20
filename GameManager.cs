@@ -20,6 +20,11 @@ namespace Test_Based_RPG
         public Inventory inventory;
         public Settings settings;
         public Shop shop;
+
+        public Medkit medkit;
+        public PowerUp powerUp;
+        public Key key;
+
         public void InitializeGame()
         {
             //On game launch
@@ -37,8 +42,13 @@ namespace Test_Based_RPG
             door = new Door();
             inventory = new Inventory();
             inventory.ShowInventory(camera);
+
             shop = new Shop();
-            Console.CursorVisible = false;
+            medkit = new Medkit(0,0);
+            powerUp = new PowerUp(0, 0);
+            key = new Key(0, 0);
+
+            Console.CursorVisible = false;            
         }
 
         public void GameLoop(Player player, Renderer renderer, Map map, EnemyManager enemyManager, HUD hud, ItemManager itemManager, Door door, Camera camera, Inventory inventory)
@@ -58,6 +68,7 @@ namespace Test_Based_RPG
                 player.Draw(renderer, camera);
                 hud.Update(player);
                 inventory.Update(camera);
+                shop.Update(player);
                 ShopCheck();
                 OnWinGame();
             }
@@ -94,7 +105,9 @@ namespace Test_Based_RPG
             // runs the shop
             while (player.paused)
             {
-
+                shop.ShopOptions(player, inventory, medkit, powerUp, key);
+                hud.Update(player);
+                inventory.Update(camera);
             }
         }
 

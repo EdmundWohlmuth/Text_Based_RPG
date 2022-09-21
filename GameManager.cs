@@ -105,10 +105,11 @@ namespace Test_Based_RPG
             // runs the shop
             while (player.paused)
             {
-                hud.ShopUI(player, shop);
+                hud.ShopUI(player, shop);               
                 shop.ShopOptions(player, inventory, medkit, powerUp, key);
                 hud.Update(player, shop);
                 inventory.Update(camera);
+                shop.Update(player);
             }
         }
 

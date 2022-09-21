@@ -32,12 +32,14 @@ namespace Test_Based_RPG
             {
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 0);
                 Console.Write("Welcome to the Inventorium");
-                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 2);
+                Console.SetCursorPosition(Console.WindowLeft + 16, Console.WindowTop + 2);
                 Console.Write("Health Potion: $" + shop.medkitCost);
-                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 3);
+                Console.SetCursorPosition(Console.WindowLeft + 16, Console.WindowTop + 3);
                 Console.Write("Attack Up: $" + shop.powerupCost);
-                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 4);
+                Console.SetCursorPosition(Console.WindowLeft + 16, Console.WindowTop + 4);
                 Console.Write("Special Key: $" + shop.keyCost);
+                Console.SetCursorPosition(Console.WindowLeft + 16, Console.WindowTop + 6);
+                Console.Write("Press 'E' to exit");
 
                 Console.ResetColor();
             }
@@ -50,6 +52,8 @@ namespace Test_Based_RPG
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 3);
                 Console.Write("                          ");
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 4);
+                Console.Write("                          ");
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 6);
                 Console.Write("                          ");
             }
         }

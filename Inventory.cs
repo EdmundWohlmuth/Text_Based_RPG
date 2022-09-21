@@ -26,7 +26,7 @@ namespace Test_Based_RPG
             Console.SetCursorPosition(Console.WindowLeft + 1, Console.WindowTop + 15);
             inventoryCoordX = Console.CursorLeft;
             inventoryCoordY = Console.CursorTop;
-            Console.Write("Money: " + money);
+            Console.Write("Money: " + money + " ");
             Console.SetCursorPosition(Console.WindowLeft + 1, Console.WindowTop + 16);
             Console.Write("Player Inventory:");
             int i = 17;

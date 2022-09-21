@@ -35,25 +35,13 @@ namespace Test_Based_RPG
                     items[i] = new Trophy();
                     items[i].name = ("Trophy" + i.ToString());
                 }
-                else if (i < 30)
+                else if (i < 40)
                 {
                     IsSpawnValid(20, 70, 2, 22, renderer, map);
                     items[i] = new Money(nextX, nextY);
                     items[i].name = ("Money" + i.ToString());
                 }
-                else if (i >= 30 && i < 40)
-                {
-                    IsSpawnValid(1, 50, 20, 22, renderer, map);
-                    items[i] = new Medkit(nextX, nextY);
-                    items[i].name = ("Medkit" + i.ToString());
-                }
-                else if (i >= 40)
-                {
-                    IsSpawnValid(50, 70, 10, 15, renderer, map);
-                    items[i] = new PowerUp(nextX, nextY);
-                    items[i].name = ("PowerUP" + i.ToString());
-                }
-/*                else
+                else
                 {
                     randomType = rd.Next(0, 2);
                     if (randomType == 0)
@@ -68,8 +56,8 @@ namespace Test_Based_RPG
                         items[i] = new PowerUp(nextX, nextY);
                         items[i].name = ("PowerUP" + i.ToString());
                     }
-                }*/
-                    
+                }
+
 
 
                 Console.WriteLine(items[i].GetName());

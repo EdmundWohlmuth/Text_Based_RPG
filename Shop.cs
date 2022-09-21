@@ -10,9 +10,9 @@ namespace Test_Based_RPG
     {
         private ConsoleKey input;
         // shop prices
-        private int medkitCost = 3;
-        private int powerupCost;
-        private int keyCost = 15;
+        public int medkitCost = 3;
+        public int powerupCost;
+        public int keyCost = 15;
 
         public void Start()
         {

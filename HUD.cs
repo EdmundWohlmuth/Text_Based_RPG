@@ -26,9 +26,38 @@ namespace Test_Based_RPG
             Console.ResetColor();
         }
 
-        public void Update(Player player)
+        public void ShopUI(Player player, Shop shop)
+        {
+            if (player.paused)
+            {
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 0);
+                Console.Write("Welcome to the Inventorium");
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 2);
+                Console.Write("Health Potion: $" + shop.medkitCost);
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 3);
+                Console.Write("Attack Up: $" + shop.powerupCost);
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 4);
+                Console.Write("Special Key: $" + shop.keyCost);
+
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 0);
+                Console.Write("                          ");
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 2);
+                Console.Write("                          ");
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 3);
+                Console.Write("                          ");
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 4);
+                Console.Write("                          ");
+            }
+        }
+
+        public void Update(Player player, Shop shop)
         {
             ShowPlayerStats(player);
+            ShopUI(player, shop);
         }
     }
 }

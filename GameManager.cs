@@ -66,7 +66,7 @@ namespace Test_Based_RPG
                 itemManager.Draw(renderer, camera);
                 door.Draw(renderer, camera);
                 player.Draw(renderer, camera);
-                hud.Update(player);
+                hud.Update(player, shop);
                 inventory.Update(camera);
                 shop.Update(player);
                 ShopCheck();
@@ -105,8 +105,9 @@ namespace Test_Based_RPG
             // runs the shop
             while (player.paused)
             {
+                hud.ShopUI(player, shop);
                 shop.ShopOptions(player, inventory, medkit, powerUp, key);
-                hud.Update(player);
+                hud.Update(player, shop);
                 inventory.Update(camera);
             }
         }

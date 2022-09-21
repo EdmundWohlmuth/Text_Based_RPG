@@ -171,7 +171,6 @@ namespace Test_Based_RPG
         {
             inventory.PlayerInventory.Add(key);
             obtained = true;
-            colorID = "";
         }
     }
 

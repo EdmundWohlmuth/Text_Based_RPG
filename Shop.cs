@@ -49,7 +49,7 @@ namespace Test_Based_RPG
                     if (inventory.money >= keyCost)
                     {
                         inventory.money = inventory.money - keyCost;
-                        key.OnBuy(player, key, inventory);
+                        key.OnBuy(key, inventory);
                     }
                     break;
 

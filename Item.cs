@@ -68,7 +68,6 @@ namespace Test_Based_RPG
                 inventory.trophy++;
             }
         }
-
     }
 
 
@@ -167,10 +166,11 @@ namespace Test_Based_RPG
             }
         }
 
-        public void OnBuy(Player player, Key key, Inventory inventory)
+        public void OnBuy(Key key, Inventory inventory)
         {
             inventory.PlayerInventory.Add(key);
             obtained = true;
+            colorID = "";
         }
     }
 

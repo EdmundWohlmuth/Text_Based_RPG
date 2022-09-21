@@ -74,6 +74,18 @@ namespace Test_Based_RPG
             }
             GameOver();
         }
+        public void ShopCheck()
+        {
+            // runs the shop
+            while (player.paused)
+            {
+                hud.ShopUI(player, shop);
+                shop.ShopOptions(player, inventory, medkit, powerUp, (Key)itemManager.items[0]);
+                hud.Update(player, shop);
+                inventory.Update(camera);
+                shop.Update(player);
+            }
+        }
 
         public void GameOver()
         {
@@ -98,19 +110,6 @@ namespace Test_Based_RPG
             Console.ResetColor();
             Console.ReadKey(true);
             System.Environment.Exit(0);
-        }
-
-        public void ShopCheck()
-        {
-            // runs the shop
-            while (player.paused)
-            {
-                hud.ShopUI(player, shop);               
-                shop.ShopOptions(player, inventory, medkit, powerUp, key);
-                hud.Update(player, shop);
-                inventory.Update(camera);
-                shop.Update(player);
-            }
         }
 
         public bool InLoseState()

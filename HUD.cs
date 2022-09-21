@@ -28,7 +28,7 @@ namespace Test_Based_RPG
 
         public void ShopUI(Player player, Shop shop)
         {
-            if (player.paused)
+            if (player.inShop)
             {
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 0);
                 Console.Write("Welcome to the Inventorium");
@@ -56,6 +56,11 @@ namespace Test_Based_RPG
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 6);
                 Console.Write("                          ");
             }
+        }
+
+        public void QuestUI(Player player)
+        {
+
         }
 
         public void Update(Player player, Shop shop)

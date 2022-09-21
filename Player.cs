@@ -10,7 +10,8 @@ namespace Test_Based_RPG
     {
         //refs
         private Map map;
-        public bool paused = false;
+        public bool inShop = false;
+        public bool inQuest = false;
 
         //vars
         private ConsoleKey input;
@@ -76,9 +77,15 @@ namespace Test_Based_RPG
                 //stop character
                 canMoveThere = false;
                 direction = 0;
-                paused = true;
-                // goto shop menu
+                inShop = true;                
 
+            }
+            else if (renderer.IsQuestArea(futureX, futureY, map) == true)
+            {
+                //stop character
+                canMoveThere = false;
+                direction = 0;
+                inQuest = true;
             }
 
             for (int i = 0; i < enemyManager.enemies.Length; i ++)

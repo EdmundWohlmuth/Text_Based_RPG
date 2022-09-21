@@ -70,6 +70,7 @@ namespace Test_Based_RPG
                 inventory.Update(camera);
                 shop.Update(player);
                 ShopCheck();
+                QuestCheck();
                 OnWinGame();
             }
             GameOver();
@@ -77,13 +78,21 @@ namespace Test_Based_RPG
         public void ShopCheck()
         {
             // runs the shop
-            while (player.paused)
+            while (player.inShop)
             {
                 hud.ShopUI(player, shop);
                 shop.ShopOptions(player, inventory, medkit, powerUp, (Key)itemManager.items[0]);
                 hud.Update(player, shop);
                 inventory.Update(camera);
                 shop.Update(player);
+            }
+        }
+
+        public void QuestCheck()
+        {
+            while (player.inQuest)
+            {
+
             }
         }
 

@@ -64,7 +64,7 @@ namespace Test_Based_RPG
 
         public void ExitShop(Player player)
         {
-            player.paused = false;
+            player.inShop = false;
         }
     }
 }

@@ -20,6 +20,7 @@ namespace Test_Based_RPG
         public Inventory inventory;
         public Settings settings;
         public Shop shop;
+        public Quest quest;
 
         public Medkit medkit;
         public PowerUp powerUp;
@@ -43,6 +44,7 @@ namespace Test_Based_RPG
             inventory = new Inventory();
             inventory.ShowInventory(camera);
 
+            quest = new Quest();
             shop = new Shop();
             medkit = new Medkit(0,0);
             powerUp = new PowerUp(0, 0);
@@ -68,31 +70,23 @@ namespace Test_Based_RPG
                 player.Draw(renderer, camera);
                 hud.Update(player, shop);
                 inventory.Update(camera);
-                shop.Update(player);
-                ShopCheck();
-                QuestCheck();
+                shop.CostUpdate(player);
+                InteractionCheck();
                 OnWinGame();
             }
             GameOver();
         }
-        public void ShopCheck()
+        public void InteractionCheck()
         {
-            // runs the shop
+            // runs the shop          
             while (player.inShop)
             {
-                hud.ShopUI(player, shop);
-                shop.ShopOptions(player, inventory, medkit, powerUp, (Key)itemManager.items[0]);
-                hud.Update(player, shop);
-                inventory.Update(camera);
-                shop.Update(player);
+                shop.Update(player, shop, inventory, medkit, powerUp, hud, itemManager, camera);
             }
-        }
 
-        public void QuestCheck()
-        {
             while (player.inQuest)
             {
-
+                quest.Update(hud, player, inventory);
             }
         }
 

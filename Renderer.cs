@@ -81,6 +81,10 @@ namespace Test_Based_RPG
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
             }
+            else if (tile == '?')
+            {
+                Console.ForegroundColor = ConsoleColor.Magenta;
+            }
             else
             {
                 Console.ForegroundColor = ConsoleColor.White;

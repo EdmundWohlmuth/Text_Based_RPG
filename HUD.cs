@@ -26,6 +26,7 @@ namespace Test_Based_RPG
             Console.ResetColor();
         }
 
+        // ---------------------------------- Shop UserInterface ------------------------------ \\
         public void ShopUI(Player player, Shop shop)
         {
             if (player.inShop)
@@ -58,11 +59,30 @@ namespace Test_Based_RPG
             }
         }
 
-        public void QuestUI(Player player)
+        // -------------------------------- Quests UserInterface ---------------------------\\
+        public void QuestGiverUI(Player player)
         {
-
+            if (player.inQuest)
+            {
+                Console.SetCursorPosition(Console.WindowLeft + 14, Console.WindowTop + 2);
+                Console.Write("Hello I could use some help");
+            }
+            else
+            {
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 0);
+                Console.Write("                          ");
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 2);
+                Console.Write("                          ");
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 3);
+                Console.Write("                          ");
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 4);
+                Console.Write("                          ");
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 6);
+                Console.Write("                          ");
+            }
         }
 
+        // ---------------------------------------- Update ------------------------------ \\
         public void Update(Player player, Shop shop)
         {
             ShowPlayerStats(player);

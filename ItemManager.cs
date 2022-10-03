@@ -58,8 +58,6 @@ namespace Test_Based_RPG
                     }
                 }
 
-
-
                 Console.WriteLine(items[i].GetName());
                 
             }

@@ -14,11 +14,15 @@ namespace Test_Based_RPG
         public int powerupCost;
         public int keyCost = 15;
 
-        public void Start()
+        public void Update(Player player, Shop shop, Inventory inventory, Medkit medkit, PowerUp powerUp, HUD hud, ItemManager itemManager, Camera camera)
         {
-
+            hud.ShopUI(player, shop);
+            shop.ShopOptions(player, inventory, medkit, powerUp, (Key)itemManager.items[0]);
+            hud.Update(player, shop);
+            inventory.Update(camera);
+            shop.CostUpdate(player);
         }
-        public void Update(Player player)
+        public void CostUpdate(Player player)
         {
             // update powerUp price
             powerupCost = 2 * player.damage;

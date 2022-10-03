@@ -55,6 +55,8 @@
     <Compile Include="Item.cs" />
     <Compile Include="ItemManager.cs" />
     <Compile Include="Map.cs" />
+    <Compile Include="Quest.cs" />
+    <Compile Include="QuestGen.cs" />
     <Compile Include="Renderer.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

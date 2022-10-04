@@ -68,7 +68,14 @@ namespace Test_Based_RPG
             }
             else if (questItem.used == false)
             {
-                renderer.Draw(questItem.x, questItem.y, questItem.avatar, camera);
+                if (questItem == null)
+                {
+                    return;
+                }
+                else if (questItem.obtained == false)
+                {
+                    renderer.Draw(questItem.x, questItem.y, questItem.avatar, camera);
+                }                
             }         
         }
 

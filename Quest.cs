@@ -6,18 +6,22 @@ using System.Threading.Tasks;
 
 namespace Test_Based_RPG
 {   
+    //TODO:
+    // Finish up in ReturnQuest()
+    // make it so that the quest is completed and pays out
+    // remove item name from inventory
+
     class Quest
     {
         private ConsoleKey input;
 
         public void Update(HUD hud, Player player, Inventory inventory, QuestGen questGen)
         {
-            hud.QuestGiverUI(player);
-            QuestOptions(player, inventory, questGen);
-            AcceptQuest(player, inventory, questGen);
+            hud.QuestGiverUI(player, questGen);           
+            QuestOptions(player, inventory, questGen, hud);
         }
 
-        public void QuestOptions(Player player, Inventory inventory, QuestGen questGen)
+        public void QuestOptions(Player player, Inventory inventory, QuestGen questGen, HUD hud)
         {
             input = Console.ReadKey(true).Key;
 
@@ -55,7 +59,6 @@ namespace Test_Based_RPG
             if (questGen.InQuest == false)
             {
                 questGen.TypeGen();
-                player.inQuest = false;
             }
             else return; // put some text here about already having a quest instead of return
             
@@ -63,9 +66,9 @@ namespace Test_Based_RPG
 
         public void ReturnQuest(Player player, Inventory inventory, QuestGen questGen)
         {
-            if (questGen.InQuest == true)
+            if (questGen.InQuest == true && questGen.questItem.obtained)
             {
-
+                inventory.PlayerInventory.Remove(questGen.questItem);                
             }
             else return; // put some stuff here about not having a quest at the momment
         }

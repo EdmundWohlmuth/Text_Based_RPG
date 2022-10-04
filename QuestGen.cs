@@ -8,7 +8,7 @@ namespace Test_Based_RPG
 {
     class QuestGen
     {
-        int questType;
+        public int questType;
         public string objType; // what the player needs to collect
         public string dialogue1; // what the quest giver say
         public string dialogue2;
@@ -16,8 +16,8 @@ namespace Test_Based_RPG
         public int achiveAmmount; // ammout of x needed to succeed quest
 
         public bool InQuest = false;
-        Item questItem;
 
+        public Item questItem;
 
         Random rd = new Random();
 
@@ -37,9 +37,9 @@ namespace Test_Based_RPG
                 achiveAmmount = 1;
             }
 
-            dialogue1 = "Hello, I seem to have lost ";
+            dialogue1 = "Hello, I seem to have lost";
             dialogue2 = "my " + objType + " could you";
-            dialogue3 = " find it for me ?";
+            dialogue3 = "find it for me ?";
             GenItem();
         }
 

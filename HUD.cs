@@ -60,31 +60,42 @@ namespace Test_Based_RPG
         }
 
         // -------------------------------- Quests UserInterface ---------------------------\\
-        public void QuestGiverUI(Player player)
+        public void QuestGiverUI(Player player, QuestGen questGen)
         {
-            if (player.inQuest)
+            if (player.inQuest && questGen.InQuest == false)              
             {
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 2);
                 Console.Write("Hello I could use some help");
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 3);
                 Console.Write("1. Accept Quest");
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 4);
-                Console.Write("2. Return Quest");
+                Console.Write("                 ");
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 6);
+                Console.Write("Press 'E' to exit");
+            }
+            else if (questGen.InQuest == true && player.inQuest == true)
+            {
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 2);
+                Console.Write(questGen.dialogue1);
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 3);
+                Console.Write(questGen.dialogue2);
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 4);
+                Console.Write(questGen.dialogue3);
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 6);
                 Console.Write("Press 'E' to exit");
             }
             else
             {
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 1);
-                Console.Write("                           ");
+                Console.Write("                             ");
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 2);
-                Console.Write("                           ");
+                Console.Write("                             ");
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 3);
-                Console.Write("                           ");
+                Console.Write("                             ");
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 4);
-                Console.Write("                          ");
+                Console.Write("                              ");
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 6);
-                Console.Write("                          ");
+                Console.Write("                             ");
             }
         }
 
@@ -93,6 +104,7 @@ namespace Test_Based_RPG
         {
             ShowPlayerStats(player);
             ShopUI(player, shop);
+
         }
     }
 }

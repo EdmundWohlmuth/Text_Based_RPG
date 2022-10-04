@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 namespace Test_Based_RPG
 {   
-    //TODO:
-    // Finish up in ReturnQuest()
-    // make it so that the quest is completed and pays out
-    // remove item name from inventory
 
     class Quest
     {
@@ -45,6 +41,7 @@ namespace Test_Based_RPG
                         ExitQuest(player);
                         break;
                 }
+                ReturnQuest(player, inventory, questGen, hud);
             }
         }
 
@@ -64,13 +61,13 @@ namespace Test_Based_RPG
             
         }
 
-        public void ReturnQuest(Player player, Inventory inventory, QuestGen questGen)
+        public void ReturnQuest(Player player, Inventory inventory, QuestGen questGen, HUD hud)
         {
             if (questGen.InQuest == true && questGen.questItem.obtained)
             {
-                inventory.PlayerInventory.Remove(questGen.questItem);                
+                inventory.PlayerInventory.Remove(questGen.questItem);
+                inventory.money = inventory.money + 5;
             }
-            else return; // put some stuff here about not having a quest at the momment
         }
     }
 }

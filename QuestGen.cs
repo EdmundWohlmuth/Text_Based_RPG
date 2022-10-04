@@ -16,6 +16,7 @@ namespace Test_Based_RPG
         public int achiveAmmount; // ammout of x needed to succeed quest
 
         public bool InQuest = false;
+        public bool isAchived = false;
 
         public Item questItem;
 
@@ -88,6 +89,10 @@ namespace Test_Based_RPG
             else
             {
                 questItem.OnContact(player, key, inventory);
+                if (questItem.obtained)
+                {
+                    isAchived = true;
+                }
             }           
         }
 

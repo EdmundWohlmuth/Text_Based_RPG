@@ -62,7 +62,18 @@ namespace Test_Based_RPG
         // -------------------------------- Quests UserInterface ---------------------------\\
         public void QuestGiverUI(Player player, QuestGen questGen)
         {
-            if (player.inQuest && questGen.InQuest == false)              
+            if (player.inQuest && questGen.isAchived == true)
+            {
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 2);
+                Console.Write("Thank you for finding");
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 3);
+                Console.Write("my " + questGen.questItem);
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 4);
+                Console.Write("Here's five dollars!");
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 6);
+                Console.Write("Press 'E' to exit");
+            }
+            else if (player.inQuest && questGen.InQuest == false && questGen.isAchived == false)
             {
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 2);
                 Console.Write("Hello I could use some help");
@@ -73,7 +84,7 @@ namespace Test_Based_RPG
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 6);
                 Console.Write("Press 'E' to exit");
             }
-            else if (questGen.InQuest == true && player.inQuest == true)
+            else if (questGen.InQuest == true && player.inQuest == true && questGen.isAchived == false)
             {
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 2);
                 Console.Write(questGen.dialogue1);

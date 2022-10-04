@@ -174,5 +174,50 @@ namespace Test_Based_RPG
         }
     }
 
+    class Rock : Item
+    {
+        public Rock(int PosX, int PosY)
+        {
+            avatar = '.';
+            x = PosX;
+            y = PosY;
+            used = false;
+            obtained = false;
+            colorID = "";
+        }
 
+        public override void OnContact(Player player, Key key, Inventory inventory)
+        {
+            if (IsItemHere(player) == true && obtained == false)
+            {
+                inventory.PlayerInventory.Add(this);
+                obtained = true;
+                colorID = "";
+            }
+        }
+    }
+
+    class Worm : Item
+    {
+        public Worm(int PosX, int PosY)
+        {
+            avatar = '-';
+            x = PosX;
+            y = PosY;
+            used = false;
+            obtained = false;
+            colorID = "";
+        }
+
+        public override void OnContact(Player player, Key key, Inventory inventory)
+        {
+            if (IsItemHere(player) == true && obtained == false)
+            {
+                inventory.PlayerInventory.Add(this);
+                obtained = true;
+                colorID = "";
+            }
+        }
+    }
+   
 }

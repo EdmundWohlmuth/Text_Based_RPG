@@ -38,12 +38,6 @@ namespace Test_Based_RPG
             }
         }
 
-        public void QuestInfo(Player player)
-        {
-            Console.SetCursorPosition(Console.WindowLeft + 1, Console.WindowTop + 18);
-            Console.Write("Enemies Killed: " + "0"+"/"+"5");
-        }
-
         public void Update(Camera camera)
         {
             ShowInventory(camera);

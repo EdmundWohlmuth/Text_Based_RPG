@@ -83,8 +83,7 @@ namespace Test_Based_RPG
             }
 
             deltaX = 0;
-            deltaY = 0;
-           
+            deltaY = 0;          
         }
     }
 }

@@ -21,10 +21,13 @@ namespace Test_Based_RPG
         public Settings settings;
         public Shop shop;
         public Quest quest;
+        public QuestGen questGen;
 
         public Medkit medkit;
         public PowerUp powerUp;
         public Key key;
+        public Rock rock;
+        public Worm worm;
 
         public void InitializeGame()
         {
@@ -45,10 +48,13 @@ namespace Test_Based_RPG
             inventory.ShowInventory(camera);
 
             quest = new Quest();
+            questGen = new QuestGen();
             shop = new Shop();
             medkit = new Medkit(0,0);
             powerUp = new PowerUp(0, 0);
             key = new Key(0, 0);
+            rock = new Rock(0, 0);
+            worm = new Worm(0, 0);
 
             Console.CursorVisible = false;            
         }
@@ -66,6 +72,8 @@ namespace Test_Based_RPG
                 enemyManager.Draw(renderer, camera);
                 itemManager.Update(player, (Key)itemManager.items[0], inventory);
                 itemManager.Draw(renderer, camera);
+                questGen.Update(player, key, inventory);
+                questGen.Draw(renderer, camera);
                 door.Draw(renderer, camera);
                 player.Draw(renderer, camera);
                 hud.Update(player, shop);
@@ -86,7 +94,7 @@ namespace Test_Based_RPG
 
             while (player.inQuest)
             {
-                quest.Update(hud, player, inventory);
+                quest.Update(hud, player, inventory, questGen);
             }
         }
 

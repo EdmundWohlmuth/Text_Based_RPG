@@ -9,30 +9,38 @@ namespace Test_Based_RPG
     class Quest
     {
         private ConsoleKey input;
-        bool onGoingQuest = false;
 
-        public void Update(HUD hud, Player player, Inventory inventory)
+        public void Update(HUD hud, Player player, Inventory inventory, QuestGen questGen)
         {
             hud.QuestGiverUI(player);
-            QuestOptions(player, inventory);
-            AcceptQuest(player, inventory);
+            QuestOptions(player, inventory, questGen);
+            AcceptQuest(player, inventory, questGen);
         }
 
-        public void QuestOptions(Player player, Inventory inventory)
+        public void QuestOptions(Player player, Inventory inventory, QuestGen questGen)
         {
             input = Console.ReadKey(true).Key;
 
-            switch (input)
+            if (questGen.InQuest == false)
             {
-                case ConsoleKey.E:
-                    ExitQuest(player);
-                    break;
-                case ConsoleKey.D1:
-                    AcceptQuest(player, inventory);
-                    break;
-                case ConsoleKey.D2:
-                    ReturnQuest();
-                    break;
+                switch (input)
+                {
+                    case ConsoleKey.E:
+                        ExitQuest(player);
+                        break;
+                    case ConsoleKey.D1:
+                        AcceptQuest(player, inventory, questGen);
+                        break;
+                }
+            }
+            else if (questGen.InQuest == true)
+            {
+                switch (input)
+                {
+                    case ConsoleKey.E:
+                        ExitQuest(player);
+                        break;
+                }
             }
         }
 
@@ -42,20 +50,20 @@ namespace Test_Based_RPG
             player.inQuest = false;
         }
 
-        public void AcceptQuest(Player player, Inventory inventory)
+        public void AcceptQuest(Player player, Inventory inventory, QuestGen questGen)
         {
-            if (onGoingQuest == false)
+            if (questGen.InQuest == false)
             {
-                inventory.QuestInfo(player);
+                questGen.TypeGen();
                 player.inQuest = false;
             }
             else return; // put some text here about already having a quest instead of return
             
         }
 
-        public void ReturnQuest()
+        public void ReturnQuest(Player player, Inventory inventory, QuestGen questGen)
         {
-            if (onGoingQuest == true)
+            if (questGen.InQuest == true)
             {
 
             }

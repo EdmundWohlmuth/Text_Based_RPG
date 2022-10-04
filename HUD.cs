@@ -64,17 +64,23 @@ namespace Test_Based_RPG
         {
             if (player.inQuest)
             {
-                Console.SetCursorPosition(Console.WindowLeft + 14, Console.WindowTop + 2);
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 2);
                 Console.Write("Hello I could use some help");
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 3);
+                Console.Write("1. Accept Quest");
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 4);
+                Console.Write("2. Return Quest");
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 6);
+                Console.Write("Press 'E' to exit");
             }
             else
             {
-                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 0);
-                Console.Write("                          ");
+                Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 1);
+                Console.Write("                           ");
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 2);
-                Console.Write("                          ");
+                Console.Write("                           ");
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 3);
-                Console.Write("                          ");
+                Console.Write("                           ");
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 4);
                 Console.Write("                          ");
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 6);

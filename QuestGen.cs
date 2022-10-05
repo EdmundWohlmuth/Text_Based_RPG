@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Test_Based_RPG
 {
-    class QuestGen
+    class QuestGen // RANDOMLY CHOOSES WHICH QUEST TO RUN
     {
         public int questType;
         public string objType; // what the player needs to collect
         public string dialogue1; // what the quest giver say
-        public string dialogue2;
-        public string dialogue3;
+        public string dialogue2; // ''
+        public string dialogue3; // ''
         public int achiveAmmount; // ammout of x needed to succeed quest
 
         public bool InQuest = false;
@@ -31,16 +31,20 @@ namespace Test_Based_RPG
             {
                 objType = "Special Rock";
                 achiveAmmount = 1;
+
+                dialogue1 = "Hello, I seem to have lost";
+                dialogue2 = "my " + objType + " could you";
+                dialogue3 = "find it for me ?";
             }
             else if (questType == 1)
             {
                 objType = "Pet Worm";
                 achiveAmmount = 1;
-            }
 
-            dialogue1 = "Hello, I seem to have lost";
-            dialogue2 = "my " + objType + " could you";
-            dialogue3 = "find it for me ?";
+                dialogue1 = "Oh No! my " + objType;
+                dialogue2 = "is lost! can you";
+                dialogue3 = "find it for me ?";
+            }
             GenItem();
         }
 
@@ -61,6 +65,7 @@ namespace Test_Based_RPG
             }
         }
 
+        // -------------- Draw and Update Generated Items ----------- \\
         public void Draw(Renderer renderer, Camera camera)
         {
             if (questItem == null)

@@ -38,7 +38,8 @@ namespace Test_Based_RPG
             }
         }
 
-        public void RemoveInventoryText()
+        // this does as the function says, hel[s with clarity.
+        public void RemoveItemName()
         {
             Console.SetCursorPosition(Console.WindowLeft + 1, Console.WindowTop + 17);
             Console.Write("              ");

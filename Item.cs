@@ -11,6 +11,7 @@ namespace Test_Based_RPG
         public bool used = false;
         public string colorID;
         public bool obtained = false;
+
         public bool IsItemHere(GameCharacter gameCharacter)
         {
             if (gameCharacter.futureX == this.x && gameCharacter.futureY == this.y)
@@ -205,7 +206,7 @@ namespace Test_Based_RPG
         {
             inventory.PlayerInventory.RemoveAt(0);
             obtained = false;
-            inventory.RemoveInventoryText();
+            inventory.RemoveItemName();
 
             x = 0;
             y = 0;
@@ -237,7 +238,7 @@ namespace Test_Based_RPG
         {
             inventory.PlayerInventory.RemoveAt(0);
             obtained = false;
-            inventory.RemoveInventoryText();
+            inventory.RemoveItemName();
 
             x = 0;
             y = 0;

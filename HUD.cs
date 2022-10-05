@@ -76,7 +76,7 @@ namespace Test_Based_RPG
             else if (player.inQuest && questGen.InQuest == false && questGen.isAchived == false)
             {
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 2);
-                Console.Write("Hello I could use some help");
+                Console.Write("Hi, I could use some help");
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 3);
                 Console.Write("1. Accept Quest");
                 Console.SetCursorPosition(Console.WindowLeft + 13, Console.WindowTop + 4);

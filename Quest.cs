@@ -65,8 +65,10 @@ namespace Test_Based_RPG
         {
             if (questGen.InQuest == true && questGen.questItem.obtained)
             {
-                inventory.PlayerInventory.Remove(questGen.questItem);
+                questGen.InQuest = false;
+                questGen.questItem.RemoveMe(inventory);
                 inventory.money = inventory.money + 5;
+                questGen.isAchived = false;
             }
         }
     }

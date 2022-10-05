@@ -25,6 +25,11 @@ namespace Test_Based_RPG
         {
 
         }
+
+        public virtual void RemoveMe(Inventory inventory)
+        {
+
+        }
     }
 
     class Money : Item
@@ -195,6 +200,14 @@ namespace Test_Based_RPG
                 colorID = "";
             }
         }
+
+        public override void RemoveMe(Inventory inventory)
+        {
+            inventory.PlayerInventory.RemoveAt(0);
+            obtained = false;
+            Console.SetCursorPosition(Console.WindowLeft + 1, Console.WindowTop + 17);
+            Console.Write("              ");
+        }
     }
 
     class Worm : Item
@@ -218,6 +231,13 @@ namespace Test_Based_RPG
                 colorID = "";
             }
         }
+        public override void RemoveMe(Inventory inventory)
+        {
+            inventory.PlayerInventory.RemoveAt(0);
+            obtained = false;
+            inventory.RemoveInventoryText();
+        }
+
     }
    
 }

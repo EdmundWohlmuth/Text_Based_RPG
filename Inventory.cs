@@ -38,6 +38,12 @@ namespace Test_Based_RPG
             }
         }
 
+        public void RemoveInventoryText()
+        {
+            Console.SetCursorPosition(Console.WindowLeft + 1, Console.WindowTop + 17);
+            Console.Write("              ");
+        }
+
         public void Update(Camera camera)
         {
             ShowInventory(camera);

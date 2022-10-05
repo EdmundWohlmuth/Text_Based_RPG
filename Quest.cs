@@ -57,7 +57,6 @@ namespace Test_Based_RPG
             {
                 questGen.TypeGen();
             }
-            else return; // put some text here about already having a quest instead of return
             
         }
 

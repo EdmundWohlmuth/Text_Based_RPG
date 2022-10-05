@@ -18,13 +18,13 @@ namespace Test_Based_RPG
         public bool InQuest = false;
         public bool isAchived = false;
 
-        public Item questItem;
+        public Item questItem;        
 
         Random rd = new Random();
 
         public void TypeGen()
         {
-            questType = rd.Next(0, 1); // sets quest type
+            questType = rd.Next(0, 2); // sets quest type
             InQuest = true;
 
             if (questType == 0)
@@ -52,12 +52,12 @@ namespace Test_Based_RPG
             if (questType == 0)
             {
                 questItem = new Rock(7, 7);
-                questItem.name = ("\"Special\" Rock" + 0.ToString());
+                questItem.name = ("\"Special\" Rock");
             }
             else if (questType == 1)
             {
                 questItem = new Worm(7, 7);
-                questItem.name = ("Pet Worm." + 0.ToString());
+                questItem.name = ("Pet Worm");
             }
         }
 

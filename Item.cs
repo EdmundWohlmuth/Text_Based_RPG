@@ -205,8 +205,10 @@ namespace Test_Based_RPG
         {
             inventory.PlayerInventory.RemoveAt(0);
             obtained = false;
-            Console.SetCursorPosition(Console.WindowLeft + 1, Console.WindowTop + 17);
-            Console.Write("              ");
+            inventory.RemoveInventoryText();
+
+            x = 0;
+            y = 0;
         }
     }
 
@@ -236,6 +238,9 @@ namespace Test_Based_RPG
             inventory.PlayerInventory.RemoveAt(0);
             obtained = false;
             inventory.RemoveInventoryText();
+
+            x = 0;
+            y = 0;
         }
 
     }
